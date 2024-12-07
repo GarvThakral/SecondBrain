@@ -12,7 +12,7 @@ export function SignUp() {
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
   async function signUserUp(){
-    const response = await axios.post(`${API_URL}/signup`,{
+    const response = await axios.post(`${API_URL}/user/signup`,{
       username,email,password
     })
     console.log(response);
