@@ -5,7 +5,6 @@ import { BrowserRouter , Route , Routes} from 'react-router-dom';
 import { SignIn } from './components/ui/signin';
 import { SignUp } from './components/ui/signup';
 import { AddContent } from './components/ui/addContent';
-import { useFetch } from './customHooks/useFetch';
 
 function App() {
 
