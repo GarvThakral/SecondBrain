@@ -3,7 +3,7 @@ import { Input } from "./input";
 import { useState } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
-const API_URL = process.env.VITE_API_URL;
+const API_URL = https://second-brain-be-mc85.vercel.app/api/v1
 
 
 export function SignIn() {
