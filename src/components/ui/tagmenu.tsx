@@ -21,7 +21,7 @@ export function TagMenu({ selectedTag, setSelectedTag }: { selectedTag: Array<st
 
     function selectTag(item: string) {
        const itemExists = selectedTag.includes(item);
-       const styleKey = itemExists ? 'true' : 'false'; 
+
        setSelectedTag((prev) => 
            itemExists ? prev.filter((value) => value !== item) : [...prev, item]
        );

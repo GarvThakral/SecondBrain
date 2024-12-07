@@ -8,17 +8,10 @@ import { TagMenu } from "./tagmenu";
 import axios from "axios";
 const API_URL = import.meta.env.VITE_API_URL;
 
-interface Tag {
-    _id: string;
-    title: string;    
-    __v: number;      
-}
 
-interface ContentProps {
-    tags?: Tag[];
-}
 
-export function AddContent(props: ContentProps) {
+
+export function AddContent() {
     const [areaText, setAreaText] = useState('');
     const [titleText, setTitleText] = useState('');
     const [linkText, setLinkText] = useState('');

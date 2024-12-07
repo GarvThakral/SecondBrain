@@ -14,7 +14,7 @@ interface BrainProps{
 export function useAddContent(props:BrainProps){
     async function addBrain(){
         const token = localStorage.getItem('token') || "";
-        const add = await axios.post(`${API_URL}/content`,
+        await axios.post(`${API_URL}/content`,
             {
                 text:props.areaText,
                 link:props.linkText,
