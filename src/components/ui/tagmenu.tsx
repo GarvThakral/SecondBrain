@@ -31,7 +31,7 @@ export function TagMenu({selectedTag,setSelectedTag}:{selectedTag:Array<string>,
     }
 
     return<div className = {"flex "}>
-        {tags?.map((item)=>{
+        {tags?.map(()=>{
             return <button key = {item._id} onClick = {()=>selectTag(item._id)}><div className ={`text-sm text-purple-500 bg-purple-300 px-4 py-2 px-2 rounded-2xl flex items-center my-2 mr-2 ${buttonStyle[selectedTag.includes(item._id).toString()]}`}>#{item.title}</div></button>
         })}
     </div>

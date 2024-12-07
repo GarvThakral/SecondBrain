@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Input } from "./input";
 import { TextArea } from "./textarea";
 import { Button } from "./button";
@@ -6,7 +6,6 @@ import { PlusIcon } from "./icons/plusIcon";
 import { SelectArea } from "./selectArea";
 import { TagMenu } from "./tagmenu";
 import axios from "axios";
-import { useAddContent } from "../../customHooks/useAddContent";
 const API_URL = import.meta.env.VITE_API_URL;
 
 

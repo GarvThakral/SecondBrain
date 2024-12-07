@@ -6,7 +6,7 @@ import { DeleteIcon } from "./icons/deleteIcon"
 import { DocumentIcon } from "./icons/documentIcon"
 import { PlusIcon } from "./icons/plusIcon"
 import { ShareIcon } from "./icons/shareIcon"
-import { ReactHTMLElement, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import axios from "axios"
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -29,9 +29,7 @@ export function AppMain({className}:{className:string}){
         date:string;    
         __v: number;        
     }
-    interface Obj{
-        content:Content[]
-    }
+   
 
     const {content = []} = useFetch(`${API_URL}/content`);
 
@@ -41,25 +39,22 @@ export function AppMain({className}:{className:string}){
         setContentState(content);
     },[content])
     
-    async function deleteCard(cardId:string){
+    async function deleteCard(cardId: string): Promise<void> {
         const token = localStorage.getItem('token');
         const contentIdentity = cardId;
-        try{
-            const deleteReq = await axios.delete(`${API_URL}/content`,{
-                headers:{
+        try {
+            await axios.delete(`${API_URL}/content`, {
+                headers: {
                     token
                 },
-                data:{
-                    contentId:contentIdentity
+                data: {
+                    contentId: contentIdentity
                 }
-            }
-        )
-        setContentState((prevContent) => prevContent.filter((item) => item._id !== cardId))
-        const response = JSON.stringify(deleteReq);
-        console.log(contentIdentity)
-        console.log(response)
-        }catch(e){
+            });
+            setContentState(prevContent => prevContent.filter((item) => item._id !== cardId));
+        } catch (e) {
             console.log(e);
+            throw e;
         }
     }
 
@@ -77,7 +72,7 @@ export function AppMain({className}:{className:string}){
         <div className ={'mt-6 flex flex-wrap'}>
             {contentState?.map((item)=>{
 
-                return<Card type = {item.type} key = {item._id} title={item.title} text = {item.text} link = {item.link} tags = {item.tags} startIcon = {<DocumentIcon size ={"md"}/>} shareIcon = {<ShareIcon size ={"md"}/>} deleteIcon={<DeleteIcon size ={"md"}/>} date = {item.date} contentId ={item._id} onDel = {deleteCard}/>
+                return<Card type = {item.type} key = {item._id} title={item.title} text = {item.text} link = {item.link} tags = {item.tags} startIcon = {<DocumentIcon size ={"md"}/>} shareIcon = {<ShareIcon size ={"md"}/>} deleteIcon={<DeleteIcon size ={"md"}/>} date = {item.date} contentId ={item._id} onDel={deleteCard}/>
             })}
         </div>
     

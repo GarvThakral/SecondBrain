@@ -21,7 +21,7 @@ interface CardProps {
     deleteIcon: any;
     date: string;
     contentId:string;
-    onDel:()=>void;
+    onDel:()=>Promise<void>;
 }
 
 const defaultCardStyles = "rounded-2xl mt-4 p-2 ";
