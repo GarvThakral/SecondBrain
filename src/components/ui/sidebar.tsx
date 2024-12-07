@@ -1,12 +1,10 @@
 import { Button } from "./button";
 import { BrainIcon } from "./icons/brainIcon";
-import { DocumentIcon } from "./icons/documentIcon";
 import { ShareIcon } from "./icons/shareIcon";
 import { TagIcon } from "./icons/tagIcon";
 import { TwitterIcon } from "./icons/twitterIcon";
 import { VideoIcon } from "./icons/VideoIcon";
-import { BrowserRouter , Router , Route , Link } from 'react-router-dom'
-import { Input } from "./input";
+import { Link } from 'react-router-dom'
 
 
 export function SideBar({ className }: { className: string }) {

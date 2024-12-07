@@ -1,4 +1,3 @@
-import { ChangeEventHandler } from "react";
 
 interface SelectAreaProps{
     size:"sm"|"md"|"lg";

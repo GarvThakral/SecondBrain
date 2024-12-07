@@ -1,7 +1,8 @@
 import './App.css'
 import { AppMain } from './components/ui/appmain'
 import { SideBar } from './components/ui/sidebar'
-import { BrowserRouter , Route , Routes} from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import { SignIn } from './components/ui/signin';
 import { SignUp } from './components/ui/signup';
 import { AddContent } from './components/ui/addContent';
