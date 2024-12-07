@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
+const API_URL = import.meta.env.VITE_API_URL;
+
 
 
 export function TagMenu({selectedTag,setSelectedTag}:{selectedTag:Array<string>,setSelectedTag:React.Dispatch<React.SetStateAction<string[]>>}){
     // console.log("hi"+props.tags)
     const [tags,setTags] = useState();
     async function fetchTags(){
-        const response = await axios.get('http://localhost:3000/api/v1/tag');
+        const response = await axios.get(`${API_URL}/tag`);
         setTags(response.data.tags);
     }
     useEffect(()=>{

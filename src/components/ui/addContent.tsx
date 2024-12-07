@@ -7,6 +7,8 @@ import { SelectArea } from "./selectArea";
 import { TagMenu } from "./tagmenu";
 import axios from "axios";
 import { useAddContent } from "../../customHooks/useAddContent";
+const API_URL = import.meta.env.VITE_API_URL;
+
 
 interface Tag {
     _id: string;
@@ -41,7 +43,7 @@ export function AddContent(props:ContentProps){
     async function addBrain(){
         console.log("Selected item is " + selectText)
         const token = localStorage.getItem('token') || "";
-        const add = await axios.post("http://localhost:3000/api/v1/content",
+        const add = await axios.post(`${API_URL}/content`,
             {
                 text:areaText,
                 link:linkText,

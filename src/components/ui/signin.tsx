@@ -3,12 +3,14 @@ import { Input } from "./input";
 import { useState } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
+const API_URL = import.meta.env.VITE_API_URL;
+
 
 export function SignIn() {
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
   async function signUserIn(){
-    const response = await axios.post("http://localhost:3000/api/v1/user/signin",{
+    const response = await axios.post(`${API_URL}/signin`,{
       email,password
     })
     console.log(response);

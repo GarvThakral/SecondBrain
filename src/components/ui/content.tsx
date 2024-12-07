@@ -20,5 +20,6 @@ export function Content(props:ContentProps){
     return<div className = {"flex flex-col justify-between p-2"}>
         <div className = {"py-2"}>{props.content}</div>
         {hello(props)}
+        
     </div>
 }

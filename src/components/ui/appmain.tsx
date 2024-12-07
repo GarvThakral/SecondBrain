@@ -8,6 +8,8 @@ import { PlusIcon } from "./icons/plusIcon"
 import { ShareIcon } from "./icons/shareIcon"
 import { ReactHTMLElement, useEffect, useState } from "react"
 import axios from "axios"
+const API_URL = import.meta.env.VITE_API_URL;
+
 
 
 export function AppMain({className}:{className:string}){
@@ -31,7 +33,7 @@ export function AppMain({className}:{className:string}){
         content:Content[]
     }
 
-    const {content = []} = useFetch("http://localhost:3000/api/v1/content");
+    const {content = []} = useFetch(`${API_URL}/content`);
 
     const [contentState,setContentState ] = useState<Content[]>([]);
 
@@ -43,7 +45,7 @@ export function AppMain({className}:{className:string}){
         const token = localStorage.getItem('token');
         const contentIdentity = cardId;
         try{
-            const deleteReq = await axios.delete("http://localhost:3000/api/v1/content",{
+            const deleteReq = await axios.delete(`${API_URL}/content`,{
                 headers:{
                     token
                 },

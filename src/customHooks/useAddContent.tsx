@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
+const API_URL = import.meta.env.VITE_API_URL;
+
 
 interface BrainProps{
     areaText:string;
@@ -12,7 +14,7 @@ interface BrainProps{
 export function useAddContent(props:BrainProps){
     async function addBrain(){
         const token = localStorage.getItem('token') || "";
-        const add = await axios.post("http://localhost:3000/api/v1/content",
+        const add = await axios.post(`${API_URL}/content`,
             {
                 text:props.areaText,
                 link:props.linkText,
