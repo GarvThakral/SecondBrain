@@ -23,7 +23,7 @@ export function AddContent(props:ContentProps){
     const [areaText,setAreaText] = useState('');
     const [titleText,setTitleText] = useState('');
     const [linkText,setLinkText] = useState('');
-    const [selectText,setSelectText] = useState('');
+    const [selectText,setSelectText] = useState('Tweet');
     function setText(e:React.ChangeEvent<HTMLTextAreaElement>){
         setAreaText(e.target.value);
     }
@@ -39,6 +39,7 @@ export function AddContent(props:ContentProps){
     }
     const [selectedTag, setSelectedTag] = useState([]);
     async function addBrain(){
+        console.log("Selected item is " + selectText)
         const token = localStorage.getItem('token') || "";
         const add = await axios.post("http://localhost:3000/api/v1/content",
             {

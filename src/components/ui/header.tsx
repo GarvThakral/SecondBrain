@@ -5,6 +5,7 @@ interface HeaderProps{
     shareIcon:any;
     deleteIcon:any;
     contentId:string;
+    onDel:(contentId:string)=>void;
 }
 export function Header(props:HeaderProps){
     async function sayHi(){
@@ -19,10 +20,9 @@ export function Header(props:HeaderProps){
             }
         }
     ) 
-    console.log(deleteReq)
     }
     return<div className = {"flex justify-between rounded-2xl "}>
         <div className = {'flex items-center text-lg '}><span className = {"pr-2 text-[#434651]"}>{props.startIcon}</span>{props.title}</div>
-        <div className = {'flex items-center'}><span className = {"pr-2 text-[#434651]"}>{props.shareIcon}</span><span className = {"pr-2 text-[#434651] cursor-pointer"} onClick={()=>sayHi()}>{props.deleteIcon}</span></div>
+        <div className = {'flex items-center'}><span className = {"pr-2 text-[#434651]"}>{props.shareIcon}</span><span className = {"pr-2 text-[#434651] cursor-pointer"} onClick={()=>props.onDel(props.contentId)}>{props.deleteIcon}</span></div>
     </div>
 }

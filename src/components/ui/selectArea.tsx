@@ -23,7 +23,7 @@ export function SelectArea(props:SelectAreaProps){
     return<div className = {`flex justify-center items-center ${sizeStyles[props.size]} rounded-2xl ${variantStyles[props.variant]} m-2 w-[250px]`}>
         <select className = {`rounded-2xl outline-none ${variantStyles[props.variant]}`} onChange = {props.onChange}>
             {props.options.map((item,index)=>{
-                return <option key ={index}>{item}</option>
+                return <option key ={index} selected = {index === 0}>{item}</option>
             })}
         </select>
     </div>

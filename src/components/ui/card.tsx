@@ -21,14 +21,15 @@ interface CardProps {
     deleteIcon: any;
     date: string;
     contentId:string;
+    onDel:()=>void;
 }
 
-const defaultCardStyles = "rounded-2xl mt-4 p-2";
+const defaultCardStyles = "rounded-2xl mt-4 p-2 ";
 
 export function Card(props:CardProps){
     console.log(props.tags)
-    return<div className = {`${defaultCardStyles} bg-[#fffefe] h-[350px] w-[250px] p-3 mr-7 mb-2`}>
-        <Header contentId = {props.contentId} startIcon = {props.startIcon} title = {props.title} shareIcon = {props.shareIcon} deleteIcon = {props.deleteIcon}/>
+    return<div className = {`${defaultCardStyles} bg-[#fffefe] p-3 mr-7 mb-2 min-w-64 max-w-96 max-h-fit`}>
+        <Header contentId = {props.contentId} startIcon = {props.startIcon} title = {props.title} shareIcon = {props.shareIcon} deleteIcon = {props.deleteIcon} onDel = {props.onDel}/>
         <Content content = {props.text} link = {props.link} type = {props.type}/>
         <Tags tags = {props.tags} />
         <Footer date = {props.date}/>
