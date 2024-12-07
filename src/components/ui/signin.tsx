@@ -10,7 +10,7 @@ export function SignIn() {
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
   async function signUserIn(){
-    const response = await axios.post(`${API_URL}/signin`,{
+    const response = await axios.post(`${API_URL}/user/signin`,{
       email,password
     })
     console.log(response);
