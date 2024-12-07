@@ -1,6 +1,5 @@
-import { IconProps, iconSizeVariants } from ".";
 
-export function BrainIcon(props:IconProps){
+export function BrainIcon(){
     return<svg className = {`fill-purple-500 size-8`} height="800px" width="800px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" 
     viewBox="0 0 463 463">
 <g>

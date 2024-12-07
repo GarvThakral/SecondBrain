@@ -11,7 +11,7 @@ export function SideBar({ className }: { className: string }) {
   return (
       <div className={`min-h-screen ${className} flex flex-col items-start p-3 bg-[#fffefe] drop-shadow-md`}>
         <Link to = "/"><div className="text-2xl flex items-center py-4 mb-4">
-          <BrainIcon size={"lg"} />
+          <BrainIcon />
           <span className="ml-2">Garv's Brain</span>
         </div>
         </Link>

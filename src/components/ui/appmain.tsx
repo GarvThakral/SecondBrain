@@ -81,7 +81,7 @@ export function AppMain({ className }: { className: string }) {
                         deleteIcon={<DeleteIcon size={"md"} />}
                         date={item.date}
                         contentId={item._id}
-                        onDel={deleteCard}
+                        onDel={()=>deleteCard(item._id)}
                     />
                 ))}
             </div>
