@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-const API_URL = "http://localhost:3000/api/v1"
+const API_URL = "https://second-brain-be-mc85.vercel.app/api/v1"
 
 export function TagMenu({ selectedTag, setSelectedTag }: { selectedTag: Array<string>; setSelectedTag: React.Dispatch<React.SetStateAction<string[]>> }) {
     const [tags, setTags] = useState<Array<{ _id: string, title: string }>>([]); 

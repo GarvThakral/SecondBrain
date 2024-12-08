@@ -8,7 +8,7 @@ import { PlusIcon } from "./icons/plusIcon"
 import { ShareIcon } from "./icons/shareIcon"
 import { useEffect, useState } from "react"
 import axios from "axios"
-const API_URL = "http://localhost:3000/api/v1"
+const API_URL = "https://second-brain-be-mc85.vercel.app/api/v1"
 
 export function AppMain({ className }: { className: string }) {
     interface Tag {
