@@ -12,9 +12,9 @@ const variantStyles = {
     "secondary":"bg-purple-300 text-purple-600"
 }
 const sizeStyles = {
-    "sm":"px-4 py-1 w-[150px]",
-    "md":"px-6 py-2 w-[200px]",
-    "lg":"px-8 py-3 w-[250px]"
+    "sm":"py-1 px-2 md:w-28 sm:w-20",
+    "md":"py-2 px-2 md:w-32 sm:w-32",
+    "lg":"py-3 px-2 md:w-36 sm:w-36"
 }
 
 

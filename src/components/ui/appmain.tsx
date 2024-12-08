@@ -8,7 +8,7 @@ import { PlusIcon } from "./icons/plusIcon"
 import { ShareIcon } from "./icons/shareIcon"
 import { useEffect, useState } from "react"
 import axios from "axios"
-const API_URL = "https://second-brain-be-mc85.vercel.app/api/v1"
+const API_URL = "http://localhost:3000/api/v1"
 
 export function AppMain({ className }: { className: string }) {
     interface Tag {
@@ -57,14 +57,14 @@ export function AppMain({ className }: { className: string }) {
     return (
         <div className={`min-h-screen ${className} bg-[#f8fafc] flex flex-col pt-4 p-4`}>
             <div className={"flex justify-between"}>
-                <div className={"text-4xl b"}>
+                <div className={"text-2xl md:text-4xl b"}>
                     All Notes
                 </div>
                 <div className={"flex"}>
                     <Link to="/addContent" className={"flex"}>
-                        <Button variant={"primary"} size={"sm"} text={"Add Content"} startIcon={<ShareIcon size={"lg"} />} onClick={() => { console.log("hi") }}></Button>
+                        <Button variant={"primary"} size={"lg"} text={"Add Content"} startIcon={<ShareIcon size={"lg"} />} onClick={() => { console.log("hi") }}></Button>
                     </Link>
-                    <Button variant={"secondary"} size={"sm"} text={"Share Brain"} endIcon={<PlusIcon size={"lg"} />} onClick={() => { console.log("hi") }}></Button>
+                    <Button variant={"secondary"} size={"lg"} text={"Share Brain"} endIcon={<PlusIcon size={"lg"} />} onClick={() => { console.log("hi") }}></Button>
                 </div>
             </div>
             <div className={'mt-6 flex flex-wrap'}>
