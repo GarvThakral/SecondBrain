@@ -8,17 +8,17 @@ import { SignUp } from './components/ui/signup';
 import { AddContent } from './components/ui/addContent';
 
 function App() {
-
   return(
   <BrowserRouter>
     <div className = {'grid grid-cols-12 min-h-screen'}>
       <SideBar className = {"col-span-2"}/>
-      <Routes>
-        <Route path = '/' element={<AppMain className = {"col-span-10"} />}></Route>
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/addContent" element={<AddContent/>} />
-        <Route path="/signup" element={<SignUp />} />
-      </Routes>
+        <div className="col-span-10">
+        <Routes>
+          <Route path = '/' element={<AppMain />}></Route>
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Routes>
+        </div>
     </div>
   </BrowserRouter>
   )

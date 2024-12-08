@@ -55,12 +55,12 @@ export function AddContent() {
     }
     
     return (
-        <div className={"flex flex-col justify-center items-center min-h-screen col-span-10 "}>
-            <div className={"flex justify-evenly items-center flex-col w-[500px] h-[700px] drop-shadow-sm"}>
-                <Input variant={"secondary"} placeholder={"Post Title"} size={"lg"} onChange={(e) => changeTitleText(e)} />
-                <Input variant={"secondary"} placeholder={"Post Link"} size={"lg"} onChange={(e) => changeLinkText(e)} />
-                <SelectArea size={"lg"} variant={"secondary"} options={["Tweet", "Video", "Link"]} onChange={(e) => { changeSelectText(e) }} />
-                <TextArea variant={"secondary"} size={"md"} onChange={(e) => setText(e)} />
+        <div className={"flex flex-col justify-center items-center min-h-screen col-span-10 w-full "}>
+            <div className={"flex justify-evenly items-center flex-col w-fit min-h-96 drop-shadow-sm"}>
+                <Input variant={"secondary"} placeholder={"Post Title"} size={"md"} onChange={(e) => changeTitleText(e)} />
+                <Input variant={"secondary"} placeholder={"Post Link"} size={"md"} onChange={(e) => changeLinkText(e)} />
+                <SelectArea size={"md"} variant={"secondary"} options={["Tweet", "Video", "Link"]} onChange={(e) => { changeSelectText(e) }} />
+                <TextArea variant={"secondary"} size={"sm"} onChange={(e) => setText(e)} />
                 <TagMenu selectedTag={selectedTag} setSelectedTag={setSelectedTag} />
                 <Button variant={"primary"} size={"lg"} text={"Add Post"} endIcon={<PlusIcon size={"lg"} />} onClick={() => addBrain()}></Button>
             </div>

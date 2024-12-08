@@ -12,13 +12,15 @@ const variantStyles = {
     "secondary":"bg-purple-300 text-purple-600"
 }
 const sizeStyles = {
-    sm: "px-4 py-1",
-    md: "px-6 py-1",
-    lg: "px-8 py-2"
+    sm: "px-4 py-1 w-36",  
+    md: "px-6 py-2 w-56 md:w-64",   
+    lg: "px-8 py-2 w-72 lg:w-80"    
 };
 
+
+
 export function Input(props:InputProps){
-    return <div className = {`flex ${sizeStyles[props.size]} rounded-2xl ${variantStyles[props.variant]} m-2 w-[250px]`}>
+    return <div className = {`flex ${sizeStyles[props.size]} rounded-2xl ${variantStyles[props.variant]}`}>
         <input ref = {props.ref} placeholder = {props.placeholder} onChange = {props.onChange} className = {`outline-none ${variantStyles[props.variant]}`}></input>
     </div>
 }

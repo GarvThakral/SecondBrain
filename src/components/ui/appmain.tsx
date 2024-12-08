@@ -8,9 +8,12 @@ import { PlusIcon } from "./icons/plusIcon"
 import { ShareIcon } from "./icons/shareIcon"
 import { useEffect, useState } from "react"
 import axios from "axios"
+import { AddContent } from "./addContent"
 const API_URL = "https://second-brain-be-mc85.vercel.app/api/v1"
 
-export function AppMain({ className }: { className: string }) {
+export function AppMain() {
+    const [addContent,setAddContent] = useState(false);
+
     interface Tag {
         _id: string;
         title: string;
@@ -44,7 +47,7 @@ export function AppMain({ className }: { className: string }) {
                     token
                 },
                 data: {
-                    contentId: cardId // changed 'contentIdentity' to 'cardId'
+                    contentId: cardId 
                 }
             });
             setContentState(prevContent => prevContent.filter((item) => item._id !== cardId));
@@ -55,19 +58,18 @@ export function AppMain({ className }: { className: string }) {
     }
 
     return (
-        <div className={`min-h-screen ${className} bg-[#f8fafc] flex flex-col pt-4 p-4`}>
+        <div className={`min-h-screen bg-[#f8fafc] flex flex-col pt-4 p-4`}>
             <div className={"flex justify-between"}>
                 <div className={"text-2xl md:text-4xl b"}>
                     All Notes
                 </div>
                 <div className={"flex"}>
-                    <Link to="/addContent" className={"flex"}>
-                        <Button variant={"primary"} size={"lg"} text={"Add Content"} startIcon={<ShareIcon size={"lg"} />} onClick={() => { console.log("hi") }}></Button>
-                    </Link>
+                    <Button variant={"primary"} size={"lg"} text={"Add Content"} startIcon={<ShareIcon size={"lg"} />} onClick={() => {setAddContent(c=>!c)}}></Button>
                     <Button variant={"secondary"} size={"lg"} text={"Share Brain"} endIcon={<PlusIcon size={"lg"} />} onClick={() => { console.log("hi") }}></Button>
                 </div>
             </div>
             <div className={'mt-6 flex flex-wrap'}>
+                {addContent ? <AddContent/> : null}
                 {contentState?.map((item) => (
                     <Card
                         type={item.type}

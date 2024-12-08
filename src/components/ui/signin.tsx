@@ -17,15 +17,14 @@ export function SignIn() {
     localStorage.setItem('token',response.data.token)
   }
   return (
-    <div className="flex justify-center items-center min-h-screen col-span-10">
-      <div className = {"bg-[#fffefe] w-[500px] h-[600px] flex flex-col items-center justify-evenly drop-shadow-lg py-3"}>
+    <div className="flex justify-center items-center min-h-screen col-span-10 fixed top-0 left-0 w-screen bg-slate-50">
+      <div className = {"bg-[#fffefe] w-[500px] h-[600px] flex flex-col items-center justify-evenly drop-shadow-lg py-3  rounded-2xl"}>
         <span className = {"text-2xl"}>Sign In Page</span>
         <span className = {"text-1xl"}>"Your Second Brain: Think Less, Achieve More."</span>
         <Input variant = {"secondary"} size = {"lg"} placeholder="email" onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{setEmail(e.target.value)}}/>        
         <Input variant = {"secondary"} size = {"lg"} placeholder="password" onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{setPassword(e.target.value)}}/>   
         <Button variant = {"primary"} size = {"lg"} text = {"Sign in"} onClick ={()=>{signUserIn()}}/>     
-        <span>Dont have an account ? Sign up instead</span>
-        <Link to ="/signup"><Button variant = {"primary"} size = {"lg"} text = {"Sign up"} onClick ={()=>{}}/></Link>
+        <span>Dont have an account ?<Link to ="/signup"><span className = "text-purple-500">Sign up </span></Link>instead</span>
       </div>
     </div>
   );
