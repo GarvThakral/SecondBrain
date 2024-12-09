@@ -55,7 +55,6 @@ export function SignUp(props:signupProps) {
         <Input variant = {"secondary"} size = {"lg"} placeholder="email" onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{setEmail(e.target.value)}}/>        
         <Input variant = {"secondary"} size = {"lg"} placeholder="password" onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{setPassword(e.target.value)}}/>   
         <Button variant = {"primary"} size = {"lg"} text = {"Sign up"} onClick ={()=>{signUserUp()}}/>     
-        <Button variant = {"primary"} size = {"lg"} text = {"Sign in"} onClick ={()=>{switchSignup()}}/>
         <span>Have an account ?<span onClick = {()=>switchSignup()} className = "text-purple-500">Sign in </span>instead</span>
 
       </div>
