@@ -43,6 +43,11 @@ export function SignUp(props:signupProps) {
     const response = await axios.post(`${API_URL}/user/signup`,{
       username,email,password
     })
+    if(response.status === 200){
+      console.log("Hello")
+    }else{
+      console.log("No")
+    }
     console.log(response);
     localStorage.setItem('token',response.data.token)
   }
@@ -57,7 +62,6 @@ export function SignUp(props:signupProps) {
         <Button variant = {"primary"} size = {"lg"} text = {"Sign up"} onClick ={()=>{signUserUp()}}/>     
         <Button variant = {"primary"} size = {"lg"} text = {"Sign in"} onClick ={()=>{switchSignup()}}/>
         <span>Have an account already ?<span onClick = {()=>switchSignup()} className = "text-purple-500">Sign in </span>instead</span>
-
       </div>
     </div>
   );
