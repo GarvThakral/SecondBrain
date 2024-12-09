@@ -6,7 +6,7 @@ import { PlusIcon } from "./icons/plusIcon";
 import { SelectArea } from "./selectArea";
 import { TagMenu } from "./tagmenu";
 import axios from "axios";
-const API_URL = "https://second-brain-be-mc85.vercel.app/api/v1"
+const API_URL = "http://localhost:3000/api/v1"
 
 
 
