@@ -6,12 +6,15 @@ import { PlusIcon } from "./icons/plusIcon";
 import { SelectArea } from "./selectArea";
 import { TagMenu } from "./tagmenu";
 import axios from "axios";
+import { Loader } from "./icons/loader";
 const API_URL = "https://second-brain-be-mc85.vercel.app/api/v1"
 
-
-
-
-export function AddContent() {
+interface addContentProps{
+    addContent:boolean
+    setAddContent:(prevState: boolean) => void;
+  }
+export function AddContent(props:addContentProps) {
+    const [loaderState,setLoaderState] = useState(false);
     const [areaText, setAreaText] = useState('');
     const [titleText, setTitleText] = useState('');
     const [linkText, setLinkText] = useState('');
@@ -35,9 +38,9 @@ export function AddContent() {
     }
 
     async function addBrain() {
-        console.log("Selected item is " + selectText);
         const token = localStorage.getItem('token') || "";
-        const add = await axios.post(`${API_URL}/content`,
+        setLoaderState(true)
+        const response = await axios.post(`${API_URL}/content`,
             {
                 text: areaText,
                 link: linkText,
@@ -51,11 +54,16 @@ export function AddContent() {
                 },
             }
         );
-        console.log(add);
+        setLoaderState(false)
+        props.setAddContent(!props.addContent)
+        if(response.status == 200){
+        }
     }
     
     return (
         <div className={"flex flex-col justify-center items-center min-h-screen col-span-10 w-full "}>
+        {loaderState ? <Loader/>:null}
+
             <div className={"flex justify-evenly items-center flex-col w-fit min-h-96 drop-shadow-sm"}>
                 <Input variant={"secondary"} placeholder={"Post Title"} size={"md"} onChange={(e) => changeTitleText(e)} />
                 <Input variant={"secondary"} placeholder={"Post Link"} size={"md"} onChange={(e) => changeLinkText(e)} />

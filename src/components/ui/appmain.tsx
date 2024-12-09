@@ -68,7 +68,7 @@ export function AppMain() {
                 </div>
             </div>
             <div className={'mt-6 flex flex-wrap'}>
-                {addContent ? <AddContent/> : null}
+                {addContent ? <AddContent setAddContent = {setAddContent} addContent={addContent} /> : null}
                 {contentState?.map((item) => (
                     <Card
                         type={item.type}
