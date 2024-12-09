@@ -2,7 +2,7 @@ import { Button } from "./button";
 import { Input } from "./input";
 import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
-const API_URL = "http://localhost:3000/api/v1"
+const API_URL = "https://second-brain-be-mc85.vercel.app/api/v1"
 console.log(API_URL);
 
 
@@ -60,8 +60,8 @@ export function SignUp(props:signupProps) {
         <Input variant = {"secondary"} size = {"lg"} placeholder="email" onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{setEmail(e.target.value)}}/>        
         <Input variant = {"secondary"} size = {"lg"} placeholder="password" onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{setPassword(e.target.value)}}/>   
         <Button variant = {"primary"} size = {"lg"} text = {"Sign up"} onClick ={()=>{signUserUp()}}/>     
-        <Button variant = {"primary"} size = {"lg"} text = {"Sign in"} onClick ={()=>{switchSignup()}}/>
-        <span>Have an account already ?<span onClick = {()=>switchSignup()} className = "text-purple-500">Sign in </span>instead</span>
+        <span>Have an account ?<span onClick = {()=>switchSignup()} className = "text-purple-500">Sign in </span>instead</span>
+
       </div>
     </div>
   );

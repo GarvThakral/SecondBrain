@@ -1,3 +1,3 @@
-export const backendUrl = "http://localhost:3000/api/v1"
+export const backendUrl = "https://second-brain-be-mc85.vercel.app/api/v1"
 
-"http://localhost:3000/api/v1"
+"https://second-brain-be-mc85.vercel.app/api/v1"

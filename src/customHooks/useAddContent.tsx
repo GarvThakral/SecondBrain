@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect } from "react";
-const API_URL = "http://localhost:3000/api/v1"
+const API_URL = "https://second-brain-be-mc85.vercel.app/api/v1"
 
 
 interface BrainProps{
