@@ -5,6 +5,7 @@ interface ButtonProps{
     startIcon?:any;
     endIcon?:any;
     onClick:()=>void;
+    
 }
 
 const variantStyles = {
