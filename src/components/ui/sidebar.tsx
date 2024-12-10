@@ -37,7 +37,7 @@ export function SideBar(props:SideBarProps) {
         <div className = "flex flex-col items-center">
           <div className="md:text-2xl sm:text-lg flex items-center py-4 mb-4 ">
             <BrainIcon />
-            <span className="ml-2 hidden sm:block">{userName===""? "Second":userName} Brain</span>
+            <span className="ml-2 hidden sm:block">{userName===""? "Second":`${userName}'s`} Brain</span>
           </div>
           <div className="p-2 flex items-center md:text-xl sm:text-lg space-x-2">
             <TwitterIcon size={"lg"} />
