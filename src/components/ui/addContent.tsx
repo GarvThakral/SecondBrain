@@ -9,10 +9,29 @@ import axios from "axios";
 import { Loader } from "./icons/loader";
 const API_URL = "https://second-brain-be-mc85.vercel.app/api/v1"
 
+interface Tag {
+    _id: string;
+    title: string;
+    __v: number;
+}
+interface Content {
+    _id: string;
+    text: string;
+    link: string;
+    tags: Tag[];
+    title: string;
+    type: string;
+    userId: string;
+    date: string;
+    __v: number;
+}
+
 interface addContentProps{
     addContent:boolean
     setAddContent:(prevState: boolean) => void;
-  }
+    contentState: Content[]; // Array of Content objects
+    setContentState: React.Dispatch<React.SetStateAction<Content[]>>;
+}
 export function AddContent(props:addContentProps) {
     const [loaderState,setLoaderState] = useState(false);
     const [areaText, setAreaText] = useState('');
@@ -54,9 +73,14 @@ export function AddContent(props:addContentProps) {
                 },
             }
         );
-        setLoaderState(false)
-        props.setAddContent(!props.addContent)
+        const content = await axios.get(`${API_URL}/content`, {
+            headers: { token: token },
+        });
+        setLoaderState(false);
+        console.log(content.data.content)
+        props.setContentState(content.data.content);
         if(response.status == 200){
+            props.setAddContent(false);
         }
     }
     

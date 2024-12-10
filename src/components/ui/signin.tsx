@@ -10,6 +10,10 @@ interface signinProps{
   toggleSigninState:(prevState: boolean) => void;
   signupState:boolean
   toggleSignupState:(prevState: boolean) => void;
+  userName:string;
+  setUserName:(prevState: string) => void
+  isLoggedIn:boolean
+  toggleIsLoggedIn:(prevState: boolean) => void
 }
 
 export function SignIn(props:signinProps) {
@@ -43,7 +47,10 @@ export function SignIn(props:signinProps) {
     })
     setLoaderState(false)
     if(response.status == 200){
+      console.log(response);
+      props.setUserName(response.data.username);
       props.toggleSigninState(false)
+      props.toggleIsLoggedIn(!props.isLoggedIn);
     }
     localStorage.setItem('token',response.data.token)
   }

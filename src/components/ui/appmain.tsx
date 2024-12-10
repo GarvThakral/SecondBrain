@@ -8,7 +8,14 @@ import { ShareIcon } from "./icons/shareIcon"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { AddContent } from "./addContent"
+import { motion } from "framer-motion";
 const API_URL = "https://second-brain-be-mc85.vercel.app/api/v1"
+
+const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+  
 
 export function AppMain() {
     const [addContent,setAddContent] = useState(false);
@@ -68,8 +75,16 @@ export function AppMain() {
                 </div>
             </div>
             <div className={'mt-6 flex flex-wrap'}>
-                {addContent ? <AddContent setAddContent = {setAddContent} addContent={addContent} /> : null}
-                {contentState?.map((item) => (
+                {addContent ? <AddContent setAddContent = {setAddContent} addContent={addContent} contentState = {contentState} setContentState ={setContentState} /> : null}
+                {addContent ? null:contentState?.map((item,index) => (
+                    <motion.div
+                        key={item._id}
+                        initial="hidden"
+                        animate="visible"
+                        exit="hidden"
+                        variants={cardVariants}
+                        transition={{ duration: 0.5, delay: index * 0.2 }}
+                    >
                     <Card
                         type={item.type}
                         key={item._id}
@@ -83,7 +98,8 @@ export function AppMain() {
                         date={item.date}
                         contentId={item._id}
                         onDel={()=>deleteCard(item._id)}
-                    />
+                        />
+                    </motion.div>
                 ))}
             </div>
         </div>

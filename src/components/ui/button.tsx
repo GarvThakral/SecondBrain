@@ -14,7 +14,7 @@ const variantStyles = {
 }
 const sizeStyles = {
     "sm":"md:py-1 md:px-2 md:w-28 sm:w-20 p-2",
-    "md":"md:py-2 md:px-2 md:w-32 sm:w-32 p-2",
+    "md":"md:py-2 md:px-2 md:w-32 sm:w-24 p-2",
     "lg":"md:py-3 md:px-2 md:w-36 sm:w-36 p-2"
 }
 
