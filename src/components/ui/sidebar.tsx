@@ -7,7 +7,7 @@ import { VideoIcon } from "./icons/VideoIcon";
 import { SignIn } from "./signin";
 import { SignUp } from "./signup";
 import { SigninIcon } from "./icons/signin";
-import {useState } from "react";
+import { useEffect, useState } from "react";
 
 interface SideBarProps {
   className: string;
@@ -26,6 +26,9 @@ export function SideBar(props:SideBarProps) {
     localStorage.clear();
     props.toggleIsLoggedIn(!props.isLoggedIn)
   }
+  useEffect(()=>{
+    setUserName(localStorage.getItem('username') || "");
+  })
 
   return (
     <div className={`min-h-screen ${props.className} flex flex-col justify-between p-3 bg-[#fffefe] drop-shadow-md items-center`}>

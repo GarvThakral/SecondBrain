@@ -49,6 +49,7 @@ export function SignIn(props:signinProps) {
     if(response.status == 200){
       console.log(response);
       props.setUserName(response.data.username);
+      localStorage.setItem('username',response.data.username);
       props.toggleSigninState(false)
       props.toggleIsLoggedIn(!props.isLoggedIn);
     }
