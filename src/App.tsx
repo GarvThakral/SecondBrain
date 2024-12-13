@@ -23,17 +23,19 @@ interface Content {
     __v: number;
 }
 
+const token = localStorage.getItem('token')||"";
   const [contentState, setContentState] = useState<Content[]>([]);
-  const token = localStorage.getItem('token')||"";
   const [signinState,toggleSigninState] = useState(false);
   const [signupState,toggleSignupState] = useState(false);
   const [isLoggedIn,toggleIsLoggedIn] = useState(token != "");
+  const [addContent,setAddContent] = useState(false);
+
 
   return(
     <div className = {'grid grid-cols-12 min-h-screen'}>
       <SideBar className = {"col-span-2"} signinState = {signinState} toggleSigninState = {toggleSigninState} signupState = {signupState} toggleSignupState = {toggleSignupState} isLoggedIn = {isLoggedIn} toggleIsLoggedIn ={toggleIsLoggedIn} contentState= {contentState} setContentState={setContentState} />
         <div className="col-span-10">
-        {isLoggedIn ? <AppMain contentState= {contentState} setContentState={setContentState} />:<InitialStage />}
+        {isLoggedIn ? <AppMain contentState= {contentState} setContentState={setContentState} addContent = {addContent} setAddContent = {setAddContent} />:<InitialStage />}
         </div>
     </div>
   )
