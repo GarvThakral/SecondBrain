@@ -16,33 +16,34 @@ const cardVariants = {
     visible: { opacity: 1, y: 0 },
   };
   
+interface Tag {
+    _id: string;
+    title: string;
+    __v: number;
+}
+interface Content {
+    _id: string;
+    text: string;
+    link: string;
+    tags: Tag[];
+    title: string;
+    type: string;
+    userId: string;
+    date: string;
+    __v: number;
+}
+interface mainProps{
+    contentState:Content[]
+    setContentState:(state: Content[] | ((prevState: Content[]) => Content[])) => void;
+}
 
-export function AppMain() {
+export function AppMain(props:mainProps) {
     const [addContent,setAddContent] = useState(false);
-
-    interface Tag {
-        _id: string;
-        title: string;
-        __v: number;
-    }
-    interface Content {
-        _id: string;
-        text: string;
-        link: string;
-        tags: Tag[];
-        title: string;
-        type: string;
-        userId: string;
-        date: string;
-        __v: number;
-    }
-
+    
     const { content = [] } = useFetch(`${API_URL}/content`);
 
-    const [contentState, setContentState] = useState<Content[]>([]);
-
     useEffect(() => {
-        setContentState(content);
+        props.setContentState(content);
     }, [content]);
 
     async function deleteCard(cardId: string): Promise<void> {
@@ -56,7 +57,7 @@ export function AppMain() {
                     contentId: cardId 
                 }
             });
-            setContentState(prevContent => prevContent.filter((item) => item._id !== cardId));
+            props.setContentState(prevContent => prevContent.filter((item) => item._id !== cardId));
         } catch (e) {
             console.log(e);
             throw e;
@@ -75,8 +76,8 @@ export function AppMain() {
                 </div>
             </div>
             <div className={'mt-6 flex flex-wrap'}>
-                {addContent ? <AddContent setAddContent = {setAddContent} addContent={addContent} contentState = {contentState} setContentState ={setContentState} /> : null}
-                {addContent ? null:contentState?.map((item,index) => (
+                {addContent ? <AddContent setAddContent = {setAddContent} addContent={addContent} contentState = {props.contentState} setContentState ={props.setContentState} /> : null}
+                {addContent ? null:props.contentState?.map((item,index) => (
                     <motion.div
                         key={item._id}
                         initial="hidden"
