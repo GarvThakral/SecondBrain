@@ -5,7 +5,7 @@ import { DeleteIcon } from "./icons/deleteIcon"
 import { DocumentIcon } from "./icons/documentIcon"
 import { PlusIcon } from "./icons/plusIcon"
 import { ShareIcon } from "./icons/shareIcon"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import axios from "axios"
 import { AddContent } from "./addContent"
 import { motion } from "framer-motion";
