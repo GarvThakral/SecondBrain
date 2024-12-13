@@ -85,11 +85,7 @@ export function SideBar(props:SideBarProps) {
           </div>
          <div onClick = {()=>{sortContent("Links")}} className="p-2 flex items-center md:text-xl sm:text-lg space-x-2 cursor-pointer">
             <ShareIcon size={"lg"} />
-            <span className = "hidden sm:block">Links</span>
-          </div>
-         <div className="p-2 flex items-center md:text-xl sm:text-lg space-x-2">
-            <TagIcon size={"lg"} />
-            <span className = "hidden sm:block">Tags</span>
+            <span className = "hidden sm:block">Other</span>
           </div>
         </div>
         <div>

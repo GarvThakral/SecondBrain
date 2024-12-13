@@ -14,7 +14,7 @@ const API_URL = "https://second-brain-be-mc85.vercel.app/api/v1"
 const cardVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
-  };
+};
   
 interface Tag {
     _id: string;
@@ -35,11 +35,12 @@ interface Content {
 interface mainProps{
     contentState:Content[]
     setContentState:(state: Content[] | ((prevState: Content[]) => Content[])) => void;
+    addContent:boolean
+    setAddContent:(prevstate:boolean)=>void;
 }
 
 export function AppMain(props:mainProps) {
-    const [addContent,setAddContent] = useState(false);
-    
+
     const { content = [] } = useFetch(`${API_URL}/content`);
 
     useEffect(() => {
@@ -71,13 +72,13 @@ export function AppMain(props:mainProps) {
                     All Notes
                 </div>
                 <div className={"flex"}>
-                    <Button variant={"primary"} size={"lg"} text={"Add Content"} startIcon={<ShareIcon size={"lg"} />} onClick={() => {setAddContent(c=>!c)}}></Button>
+                    <Button variant={"primary"} size={"lg"} text={"Add Content"} startIcon={<ShareIcon size={"lg"} />} onClick={() => {props.setAddContent(!props.addContent)}}></Button>
                     <Button variant={"secondary"} size={"lg"} text={"Share Brain"} endIcon={<PlusIcon size={"lg"} />} onClick={() => { console.log("hi") }}></Button>
                 </div>
             </div>
             <div className={'mt-6 flex flex-wrap'}>
-                {addContent ? <AddContent setAddContent = {setAddContent} addContent={addContent} contentState = {props.contentState} setContentState ={props.setContentState} /> : null}
-                {addContent ? null:props.contentState?.map((item,index) => (
+                {props.addContent ? <AddContent setAddContent = {props.setAddContent} addContent={props.addContent} contentState = {props.contentState} setContentState ={props.setContentState} /> : null}
+                {props.addContent ? null:props.contentState?.map((item,index) => (
                     <motion.div
                         key={item._id}
                         initial="hidden"

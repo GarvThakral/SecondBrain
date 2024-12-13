@@ -85,10 +85,9 @@ export function AddContent(props:addContentProps) {
     }
     
     return (
-        <div className={"flex flex-col justify-center items-center min-h-screen col-span-10 w-full "}>
+        <div className={"flex flex-col justify-center items-center min-h-[80vh] col-span-10 w-full"}>
         {loaderState ? <Loader/>:null}
-
-            <div className={"flex justify-evenly items-center flex-col w-fit min-h-96 drop-shadow-sm"}>
+            <div className={"flex justify-evenly items-center flex-col sm:w-[500px] min-h-[80vh] shadow-lg w-[300px]"}>
                 <Input variant={"secondary"} placeholder={"Post Title"} size={"md"} onChange={(e) => changeTitleText(e)} />
                 <Input variant={"secondary"} placeholder={"Post Link"} size={"md"} onChange={(e) => changeLinkText(e)} />
                 <SelectArea size={"md"} variant={"secondary"} options={["Tweet", "Video", "Link"]} onChange={(e) => { changeSelectText(e) }} />

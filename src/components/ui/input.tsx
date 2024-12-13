@@ -13,8 +13,8 @@ const variantStyles = {
 }
 const sizeStyles = {
     sm: "px-4 py-1 w-36",  
-    md: "px-6 py-2 w-56 md:w-64",   
-    lg: "px-8 py-2 w-72 lg:w-80"    
+    md: "px-6 py-3 w-56 md:w-64",   
+    lg: "px-8 py-3 w-72 lg:w-80"    
 };
 
 

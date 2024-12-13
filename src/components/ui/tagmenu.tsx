@@ -28,7 +28,7 @@ export function TagMenu({ selectedTag, setSelectedTag }: { selectedTag: Array<st
     }
 
     return (
-        <div className={"flex"}>
+        <div className={"flex flex-wrap p-2 justify-center"}>
             {tags?.map((item) => (
                 <button key={item._id} onClick={() => selectTag(item._id)}>
                     <div className={`text-sm ${buttonStyle[selectedTag.includes(item._id).toString()]} px-4 py-2 rounded-2xl flex items-center my-2 mr-2`}>
