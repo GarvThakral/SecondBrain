@@ -11,7 +11,7 @@ function renderContent(props: ContentProps) {
     const embedUrl = props.link
       .replace("youtu.be/", "youtube.com/embed/")
       .replace("/watch?v=", "/embed/");
-
+    console.log("Embed URL:", embedUrl);
     return (
       <iframe
         src={embedUrl}
