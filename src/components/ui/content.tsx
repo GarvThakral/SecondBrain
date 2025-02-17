@@ -11,14 +11,11 @@ function renderContent(props: ContentProps) {
     const embedUrl = props.link
       .replace("youtu.be/", "youtube.com/embed/")
       .replace("/watch?v=", "/embed/");
-    console.log("Embed URL:", embedUrl);
     return (
       <iframe
         src={embedUrl}
         title="YouTube video player"
-        frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerPolicy="no-referrer-when-downgrade"
         allowFullScreen
       ></iframe>
     );
